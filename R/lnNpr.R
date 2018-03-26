@@ -1,5 +1,5 @@
-lnNpr <-
-  function(a,b)
+#' @keywords internal
+lnNpr <- function(a,b)
   { # computes ln(P(a<Z<b))
     # where Z~N(0,1) very accurately for any 'a', 'b'
     p=rep(0,length(a))
@@ -8,7 +8,7 @@ lnNpr <-
     if (any(I)){
       pa=pnorm(a[I],lower.tail = FALSE, log.p = TRUE)
       pb=pnorm(b[I],lower.tail = FALSE, log.p = TRUE)
-      p[I]=pa+log1p(-exp(pb-pa)) 
+      p[I]=pa+log1p(-exp(pb-pa))
     }
     # case a<b<0
     idx=b<0

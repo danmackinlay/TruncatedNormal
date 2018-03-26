@@ -1,15 +1,16 @@
+#' @keywords internal
 cholperm <-
   function( Sig, l, u ){
     #  Computes permuted lower Cholesky factor L for Sig
     #  by permuting integration limit vectors l and u.
     #  Outputs perm, such that Sig(perm,perm)=L%*%t(L).
     #
-    # Reference: 
+    # Reference:
     #  Gibson G. J., Glasbey C. A., Elston D. A. (1994),
     #  "Monte Carlo evaluation of multivariate normal integrals and
-    #  sensitivity to variate ordering", 
+    #  sensitivity to variate ordering",
     #  In: Advances in Numerical Methods and Applications, pages 120--126
-    eps=10^-10; # round-off error tolerance
+    eps=1e-10; # round-off error tolerance
     d=length(l);perm=1:d; # keep track of permutation
     L=matrix(0,d,d);z=rep(0,d);
     for (j in 1:d){
