@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+
+import(randtoolbox)
+importFrom("stats", "pnorm", "qnorm", "rnorm", "runif", "sd")
